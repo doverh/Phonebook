@@ -12,20 +12,24 @@ db_params = {
 db = PG::Connection.new(db_params)
 
 get "/"  do
-phonebook = db.exec("SELECT first_name, last_name, address, city,state,zip, phone, email FROM phonebook");	
-erb :index, :locals=>{:phonebook => phonebook}
+erb :index
 end
 
-post "/phonebook" do
-	first_name = [:first_name]
-	last_name = [:last_name]
-	address = [:address]
-	city = [:city]
-	state = [:state]
-	zip = [:zip]
-	phone = [:phone]
-	email = [:email]
+post "/confirmation" do
+	first_name = params['first_name']
+	last_name = params['last_name']
+	address = params['address']
+	city = params['city']
+	state = params['state']
+	zip = params['zip']
+	phone = params['phone']
+	email = params['email']
 
 	db.exec("INSERT INTO phonebook(first_name, last_name, address, city,state,zip, phone,email) values('#{first_name}', '#{last_name}','#{address}','#{city}','#{state}','#{zip}','#{phone}','#{email}')");
+	erb :confirm
+end
 
+get "/show_all"  do
+phonebook = db.exec("SELECT first_name, last_name, address, city,state,zip, phone, email FROM phonebook");	
+erb :show_all, :locals=>{:phonebook => phonebook}
 end
