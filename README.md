@@ -1,6 +1,6 @@
 # Phonebook
 
-This repository stores a phonebook app in Ruby designed to the TECH HIRE bootcamp.
+This repository stores a phonebook app in Ruby and AWS database designed to the TECH HIRE bootcamp.
 
 Introduction
 
