@@ -1,5 +1,0 @@
-ENV['host'] = 'phoneapp.cqjttjawogqt.us-west-2.rds.amazonaws.com'
-ENV['port'] = '5432'
-ENV['db_name'] = 'phoneAppDB'
-ENV['user'] = 'dovico'
-ENV['password'] = 'Dovico#29'
